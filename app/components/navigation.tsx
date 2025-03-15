@@ -46,9 +46,23 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden flex flex-col space-y-2 mt-2 p-4 bg-base-300 rounded-lg">
-          <Link href="/about" className="btn btn-ghost" onClick={() => setIsOpen(false)}>About</Link>
+          {/* <Link href="/about" className="btn btn-ghost" onClick={() => setIsOpen(false)}>About</Link>
           <Link href="/services" className="btn btn-ghost" onClick={() => setIsOpen(false)}>Services</Link>
-          <Link href="/contact" className="btn btn-ghost" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link href="/contact" className="btn btn-ghost" onClick={() => setIsOpen(false)}>Contact</Link> */}
+
+
+          {auth.isAuthenticated?<>               
+                <Logout/>
+                <Link href="/about" className="btn btn-ghost">About</Link>
+                <Link href="/" className="btn btn-ghost">Welcome {auth.context_userId?.toUpperCase()}</Link>
+          
+          </>:<>
+          <Link href="/login" className="btn btn-ghost">Login</Link>
+          <Link href="/registration" className="btn btn-ghost">Registration</Link>
+          <Link href="/about" className="btn btn-ghost">About</Link>
+            </>}
+
+
         </div>
       )}
     </nav>
