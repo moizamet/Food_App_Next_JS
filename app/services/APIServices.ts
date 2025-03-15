@@ -3,7 +3,8 @@ import { getToken } from "../auth_management/actions"
 const DJANGO_APP_BASE_URL=process.env.NEXT_PUBLIC_DJANGO_APP_BASE_URL ?process.env.NEXT_PUBLIC_DJANGO_APP_BASE_URL :"http://localhost"
 const DJANGO_APP_BASE_PORT=process.env.NEXT_PUBLIC_DJANGO_APP_BASE_PORT ? process.env.NEXT_PUBLIC_DJANGO_APP_BASE_PORT : "8000"
 // const BASE_URL="http://localhost:8000/"
-const BASE_URL=`${DJANGO_APP_BASE_URL}:${DJANGO_APP_BASE_PORT}/`
+// const BASE_URL=`${DJANGO_APP_BASE_URL}:${DJANGO_APP_BASE_PORT}/`
+const BASE_URL=process.env.NEXT_PUBLIC_DJANGO_APP_COMPLETE_URL
 
 async function generate_headers(authenticate:boolean){
     let headers={}
